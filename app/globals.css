@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* PRD §5.3 — design tokens preserved byte-for-byte in HSL component form. */
+@layer base {
+  :root {
+    --background: 34 43% 96%; /* #FAF6F1 */
+    --foreground: 36 8% 10%; /* #1C1A17 */
+    --card: 34 43% 96%;
+    --card-foreground: 36 8% 10%;
+    --popover: 34 43% 96%;
+    --popover-foreground: 36 8% 10%;
+    --primary: 193 72% 21%; /* #0F4C5C (CTA Green) */
+    --primary-foreground: 34 43% 96%; /* #FAF6F1 */
+    --secondary: 30 53% 64%; /* #D4A574 (Gold Rare) */
+    --secondary-foreground: 36 8% 10%;
+    --muted: 38 38% 91%; /* #F2EBDF (Secondary Section Alt) */
+    --muted-foreground: 34 7% 34%; /* #5C5750 */
+    --accent: 20 92% 40%; /* #C2410C (Terracotta) */
+    --accent-foreground: 34 43% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 38 38% 85%;
+    --input: 38 38% 85%;
+    --ring: 193 72% 21%;
+    --radius: 0.3rem;
+  }
+}
+
+/* Tailwind v4 token mapping. PRD HSL components above stay the source of truth; this block only exposes them as Tailwind utilities (bg-background, text-foreground, font-display, etc.). */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
