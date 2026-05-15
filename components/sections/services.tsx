@@ -39,7 +39,7 @@ const services: Service[] = [
   {
     icon: MessageSquare,
     title: "Chatbots & Triage",
-    body: "Intelligent front-line triage. Qualifying leads, answering customer FAQs, and booking appointments instantly via text and messaging platforms.",
+    body: "Customer-facing chatbots and AI agents that answer, qualify, route, and follow up without adding manual work to your team.",
   },
 ];
 
