@@ -45,7 +45,7 @@ const services: Service[] = [
 
 export function Services() {
   return (
-    <section className="bg-background">
+    <section id="services" className="scroll-mt-12 bg-background">
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-20">
         <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
           How We Build Leverage
