@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
 import { Services } from "@/components/sections/services";
 import { SiteFooter } from "@/components/sections/site-footer";
+import { StatStrip } from "@/components/sections/stat-strip";
 import { UseCases } from "@/components/sections/use-cases";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Problem />
+        <StatStrip />
         <Services />
         <UseCases />
         <About />
