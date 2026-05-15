@@ -85,7 +85,7 @@ export function UseCases() {
               <article
                 key={industry}
                 className={cn(
-                  "py-12 md:py-16",
+                  "group py-12 md:py-16",
                   idx > 0 && "border-t border-border",
                 )}
               >
@@ -94,7 +94,7 @@ export function UseCases() {
                     {industry}
                   </p>
                   <Icon
-                    className="size-5 shrink-0 text-muted-foreground"
+                    className="size-5 shrink-0 text-muted-foreground transition-colors duration-300 group-hover:text-accent"
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />

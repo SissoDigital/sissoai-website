@@ -5,7 +5,7 @@ import { WhatsAppCta } from "@/components/whatsapp-cta";
 
 export function CTA() {
   return (
-    <section id="cta" data-reveal className="scroll-mt-12 bg-background">
+    <section id="cta" className="atmosphere-warm scroll-mt-12 bg-background">
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-20">
         <div className="max-w-3xl">
           <BadgeStamp

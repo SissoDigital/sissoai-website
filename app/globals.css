@@ -90,5 +90,99 @@
     [data-reveal] {
       animation: section-reveal 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
     }
+
+    /* Signal pulse — calm "live system" cue. Used by .signal-dot. */
+    @keyframes signal-pulse {
+      0%, 100% {
+        opacity: 0.55;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.25);
+      }
+    }
+
+    .signal-dot {
+      animation: signal-pulse 2.4s ease-in-out infinite;
+    }
+
+    /* SVG node pulse — opacity-only so dot radius stays stable. */
+    @keyframes signal-pulse-svg {
+      0%, 100% {
+        opacity: 0.4;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .signal-dot-svg {
+      animation: signal-pulse-svg 2.8s ease-in-out infinite;
+    }
+    .signal-dot-svg-1 { animation-delay: 0s; }
+    .signal-dot-svg-2 { animation-delay: 0.4s; }
+    .signal-dot-svg-3 { animation-delay: 0.8s; }
+    .signal-dot-svg-4 { animation-delay: 1.2s; }
+    .signal-dot-svg-5 { animation-delay: 1.6s; }
+    .signal-dot-svg-6 { animation-delay: 2.0s; }
+    .signal-dot-svg-7 { animation-delay: 2.4s; }
+  }
+}
+
+@layer utilities {
+  /* Ambient warm atmosphere — soft Gold-Rare radial wash anchored top-right,
+     layered over the section's existing background-color. Applied to "warm
+     anchor" sections (about, cta) for boutique depth. */
+  .atmosphere-warm {
+    background-image:
+      radial-gradient(
+        ellipse 80% 60% at 100% 0%,
+        hsl(var(--secondary) / 0.16),
+        transparent 55%
+      );
+    background-repeat: no-repeat;
+  }
+
+  /* Faint architectural dot grid — system-design / graph-paper feel. */
+  .bg-grid {
+    background-image: radial-gradient(
+      hsl(var(--foreground) / 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  /* Hero composite — dot grid + warm wash combined in a single class so
+     both layers cooperate via comma-separated background-image. */
+  .hero-atmosphere {
+    background-image:
+      radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px),
+      radial-gradient(
+        ellipse 80% 60% at 100% 0%,
+        hsl(var(--secondary) / 0.18),
+        transparent 55%
+      );
+    background-size: 40px 40px, auto;
+    background-repeat: repeat, no-repeat;
+  }
+
+  /* Signal dot — terracotta indicator for "Operator-led" badges. Pulses via
+     base layer above (only when prefers-reduced-motion: no-preference). */
+  .signal-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: hsl(var(--accent));
+    opacity: 0.85;
+  }
+
+  /* SVG dot inside <AmbientField>. Color + base opacity defined here so
+     SVG circles inherit consistent styling; pulse animation is gated above. */
+  .signal-dot-svg {
+    fill: hsl(var(--accent));
+    transform-origin: center;
+    opacity: 0.7;
   }
 }

@@ -1,49 +1,37 @@
-import {
-  Bot,
-  BrainCircuit,
-  Compass,
-  Database,
-  MessageSquare,
-  Workflow,
-  type LucideIcon,
-} from "lucide-react";
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 type Service = {
-  icon: LucideIcon;
+  number: string;
   title: string;
   body: string;
 };
 
 const services: Service[] = [
   {
-    icon: Workflow,
+    number: "01",
     title: "Automation with Make.com",
     body: "Orchestrating workflows across disparate software. We eliminate manual data entry and connect your operational tools to run on autopilot.",
   },
   {
-    icon: BrainCircuit,
+    number: "02",
     title: "AI Automation",
     body: "Integrating AI into daily workflows to handle repetitive cognitive tasks, allowing your business to scale output without scaling headcount.",
   },
   {
-    icon: Database,
+    number: "03",
     title: "CRM Architecture",
     body: "Custom Airtable builds designed for physical operations. We create a single, unbreakable source of truth for your leads, guests, and daily management.",
   },
   {
-    icon: Bot,
+    number: "04",
     title: "AI Agents",
     body: "Deploying autonomous digital workers capable of executing multi-step processes, research, and operational tasks 24/7.",
   },
   {
-    icon: MessageSquare,
+    number: "05",
     title: "Chatbots & Triage",
     body: "Chatbots for WhatsApp, Instagram, Facebook Messenger, and website conversations — built to answer, qualify, route, and follow up without adding manual work to your team.",
   },
   {
-    icon: Compass,
+    number: "06",
     title: "AI Audit & Enablement",
     body: "AI audits, implementation planning, and team enablement to help companies identify the right tools, map the right workflows, and turn adoption into working business systems.",
   },
@@ -51,33 +39,36 @@ const services: Service[] = [
 
 export function Services() {
   return (
-    <section id="services" className="scroll-mt-12 bg-background">
+    <section
+      id="services"
+      className="scroll-mt-12 bg-grid bg-background"
+    >
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-20">
         <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
           How We Build Leverage
         </h2>
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, body }) => (
-            <Card
-              key={title}
-              className="border-border bg-background transition-colors hover:bg-muted/30"
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 md:gap-x-14">
+          {services.map(({ number, title, body }) => (
+            <article
+              key={number}
+              className="group relative border-t border-border py-8 transition-colors duration-300 hover:bg-foreground/[0.025] md:py-10"
             >
-              <CardHeader>
-                <Icon
-                  className="size-7 text-accent"
+              <div className="flex items-center gap-4">
+                <span className="font-display text-2xl font-semibold tabular-nums text-accent md:text-3xl">
+                  {number}
+                </span>
+                <span
                   aria-hidden="true"
-                  strokeWidth={1.5}
+                  className="h-px flex-1 bg-border transition-colors duration-500 group-hover:bg-accent/60"
                 />
-                <CardTitle className="mt-4 font-display text-xl font-semibold leading-tight text-foreground md:text-2xl">
-                  {title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {body}
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+              <h3 className="mt-5 font-display text-2xl font-semibold leading-tight text-foreground md:text-3xl">
+                {title}
+              </h3>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                {body}
+              </p>
+            </article>
           ))}
         </div>
       </div>

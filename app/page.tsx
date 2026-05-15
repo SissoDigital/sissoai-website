@@ -6,18 +6,31 @@ import { Services } from "@/components/sections/services";
 import { SiteFooter } from "@/components/sections/site-footer";
 import { StatStrip } from "@/components/sections/stat-strip";
 import { UseCases } from "@/components/sections/use-cases";
+import { ScrollReveal } from "@/components/visual/scroll-reveal";
 
 export default function Home() {
   return (
     <>
       <main className="flex-1">
         <Hero />
-        <Problem />
-        <StatStrip />
-        <Services />
-        <UseCases />
-        <About />
-        <CTA />
+        <ScrollReveal>
+          <Problem />
+        </ScrollReveal>
+        <ScrollReveal>
+          <StatStrip />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Services />
+        </ScrollReveal>
+        <ScrollReveal>
+          <UseCases />
+        </ScrollReveal>
+        <ScrollReveal>
+          <About />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CTA />
+        </ScrollReveal>
       </main>
       <SiteFooter />
     </>

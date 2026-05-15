@@ -1,11 +1,17 @@
 import { buttonVariants } from "@/components/ui/button";
 import { IndustryPills } from "@/components/ui/industry-pills";
+import { AmbientField } from "@/components/visual/ambient-field";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section data-reveal className="bg-background">
+    <section data-reveal className="hero-atmosphere bg-background">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center px-6 py-20 text-center md:py-32 lg:py-40">
+        <AmbientField className="mb-10 h-20 w-56 md:mb-14 md:h-24 md:w-72" />
+        <div className="mb-10 inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-muted-foreground">
+          <span className="signal-dot" aria-hidden="true" />
+          Operator-led
+        </div>
         <h1 className="max-w-4xl font-display text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
           Automate your operations. Reclaim your margins and your time.
         </h1>
