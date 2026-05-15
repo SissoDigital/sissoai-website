@@ -11,9 +11,9 @@ export function Hero() {
         </h1>
         <p className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg lg:text-xl">
           I spent two decades running high-volume restaurants, hospitality, real
-          estate, and property management. Now I build the AI automations, CRM
-          architectures, and agents that solve the operational bottlenecks I
-          fought daily.
+          estate, and property management. Now I build AI automations, CRM
+          systems, chatbots, and practical AI agents that solve the operational
+          bottlenecks I fought daily.
         </p>
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
           <a
