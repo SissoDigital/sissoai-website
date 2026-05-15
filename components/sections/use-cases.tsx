@@ -30,7 +30,7 @@ const useCases: UseCase[] = [
     problem:
       "Front-of-house staff were overwhelmed by repetitive booking inquiries and phone calls during peak service hours.",
     build:
-      "An AI voice and text agent trained strictly on property SOPs and integrated directly with the reservation system.",
+      "A chatbot with an AI workflow layer, trained on operational SOPs and connected to the reservation flow.",
     result:
       "70% reduction in manual ticket handling and zero missed inquiries during off-hours.",
   },
