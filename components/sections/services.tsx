@@ -1,6 +1,7 @@
 import {
   Bot,
   BrainCircuit,
+  Compass,
   Database,
   MessageSquare,
   Workflow,
@@ -40,6 +41,11 @@ const services: Service[] = [
     icon: MessageSquare,
     title: "Chatbots & Triage",
     body: "Chatbots for WhatsApp, Instagram, Facebook Messenger, and website conversations — built to answer, qualify, route, and follow up without adding manual work to your team.",
+  },
+  {
+    icon: Compass,
+    title: "AI Audit & Enablement",
+    body: "AI audits, implementation planning, and team enablement to help companies identify the right tools, map the right workflows, and turn adoption into working business systems.",
   },
 ];
 
