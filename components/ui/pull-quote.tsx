@@ -16,7 +16,7 @@ export function PullQuote({ children, eyebrow, className }: PullQuoteProps) {
           {eyebrow}
         </figcaption>
       ) : null}
-      <blockquote className="font-display italic text-2xl leading-tight text-foreground md:text-4xl">
+      <blockquote className="font-display italic text-3xl leading-tight text-foreground md:text-5xl">
         {children}
       </blockquote>
     </figure>
