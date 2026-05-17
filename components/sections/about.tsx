@@ -2,7 +2,7 @@ import { FounderPortrait } from "@/components/founder-portrait";
 
 export function About() {
   return (
-    <section className="atmosphere-warm bg-background">
+    <section id="about" className="atmosphere-warm scroll-mt-12 bg-background">
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-20">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
           <div className="flex justify-center md:justify-start">

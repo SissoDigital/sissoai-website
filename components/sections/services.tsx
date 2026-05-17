@@ -48,12 +48,17 @@ export function Services() {
           How We Build Leverage
         </h2>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 md:gap-x-14">
-          {services.map(({ number, title, body }) => (
+          {services.map(({ number, title, body }, idx) => (
             <article
               key={number}
               className="group relative border-t border-border py-8 transition-colors duration-300 hover:bg-foreground/[0.025] md:py-10"
             >
               <div className="flex items-center gap-4">
+                <span
+                  aria-hidden="true"
+                  className="signal-dot"
+                  style={{ animationDelay: `${idx * 0.3}s` }}
+                />
                 <span className="font-display text-2xl font-semibold tabular-nums text-accent md:text-3xl">
                   {number}
                 </span>
