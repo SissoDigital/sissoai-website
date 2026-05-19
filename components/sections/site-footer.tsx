@@ -110,10 +110,18 @@ export function SiteFooter() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href={`mailto:${CONTACT.email}`}
+                  href={`mailto:${CONTACT.emailPrimary}`}
                   className="text-background/80 transition-colors hover:text-background"
                 >
-                  {CONTACT.email}
+                  {CONTACT.emailPrimary}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${CONTACT.emailSecondary}`}
+                  className="text-background/80 transition-colors hover:text-background"
+                >
+                  {CONTACT.emailSecondary}
                 </a>
               </li>
               <li>

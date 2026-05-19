@@ -45,7 +45,7 @@ export function Hero() {
           </a>
         </div>
         <IndustryPills
-          className="mt-10"
+          className="mt-16 md:mt-20"
           pills={[
             "Hospitality",
             "Property Management",

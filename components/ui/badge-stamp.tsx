@@ -9,7 +9,7 @@ export function BadgeStamp({ lines, className }: BadgeStampProps) {
   return (
     <div
       className={cn(
-        "inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-y border-border px-4 py-3 text-xs uppercase tracking-widest text-accent",
+        "relative inline-flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-t border-border px-4 py-3 text-xs uppercase tracking-widest text-accent",
         className,
       )}
     >
@@ -23,6 +23,10 @@ export function BadgeStamp({ lines, className }: BadgeStampProps) {
           ) : null}
         </span>
       ))}
+      <span
+        aria-hidden="true"
+        className="shimmer-line absolute bottom-0 left-0 right-0 h-px"
+      />
     </div>
   );
 }

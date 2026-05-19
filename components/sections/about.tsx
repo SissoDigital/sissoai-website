@@ -14,7 +14,7 @@ export function About() {
             </h2>
             <div className="mt-8 space-y-6 text-base text-foreground md:text-lg">
               <p>
-                My name is Sisso. Over the last 25 years, I have built, scaled,
+                My name is Roie Sisso. Over the last 25 years, I have built, scaled,
                 and operated physical businesses across restaurants,
                 international real estate, and property management.
               </p>

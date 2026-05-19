@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SiteFooter } from "@/components/sections/site-footer";
+import { CONTACT } from "@/lib/social";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Sisso AI",
@@ -169,10 +170,10 @@ export default function TermsPage() {
               <p>
                 Questions about these Terms can be sent to{" "}
                 <a
-                  href="mailto:sissoaiagency@gmail.com"
+                  href={`mailto:${CONTACT.emailPrimary}`}
                   className="text-accent underline-offset-4 hover:underline"
                 >
-                  sissoaiagency@gmail.com
+                  {CONTACT.emailPrimary}
                 </a>{" "}
                 or via WhatsApp using the link in our site footer.
               </p>

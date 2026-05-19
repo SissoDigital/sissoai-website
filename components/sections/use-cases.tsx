@@ -94,7 +94,8 @@ export function UseCases() {
                     {industry}
                   </p>
                   <Icon
-                    className="size-5 shrink-0 text-muted-foreground transition-all duration-500 group-hover:translate-x-1 group-hover:text-accent"
+                    className="icon-breathe size-5 shrink-0 text-muted-foreground transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:rotate-3 group-hover:scale-110 group-hover:text-accent"
+                    style={{ animationDelay: `${idx * 0.8}s` }}
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />

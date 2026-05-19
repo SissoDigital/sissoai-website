@@ -177,6 +177,35 @@
     .status-dot {
       animation: status-pulse 2.4s ease-in-out infinite;
     }
+
+    /* Use Cases icon breathe — subtle alive cue on the lucide icons. Each
+       icon takes an inline animation-delay so the three cards stagger. */
+    @keyframes icon-breathe {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+    .icon-breathe {
+      animation: icon-breathe 4s ease-in-out infinite;
+    }
+
+    /* BadgeStamp bottom-line shimmer. A soft terracotta hotspot travels
+       across a 200% background to read as "connected to the system rhythm." */
+    @keyframes shimmer-line {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer-line {
+      background: linear-gradient(
+        90deg,
+        hsl(var(--border)) 0%,
+        hsl(var(--border)) 40%,
+        hsl(var(--accent) / 0.6) 50%,
+        hsl(var(--border)) 60%,
+        hsl(var(--border)) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer-line 5s ease-in-out infinite;
+    }
   }
 }
 
@@ -244,5 +273,13 @@
     fill: hsl(var(--accent));
     transform-origin: center;
     opacity: 0.7;
+  }
+
+  /* AmbientField-scoped opacity override. Dialed down vs. the connection
+     diagram so the hero constellation reads as ambient atmosphere rather
+     than foreground decoration. The signal-pulse-svg keyframe still peaks
+     at full opacity, so the pulse animation remains visible. */
+  .signal-dot-svg-ambient {
+    opacity: 0.5;
   }
 }

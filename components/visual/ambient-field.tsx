@@ -20,7 +20,7 @@ export function AmbientField({ className }: AmbientFieldProps) {
       className={cn("pointer-events-none select-none", className)}
     >
       <svg
-        viewBox="0 0 800 300"
+        viewBox="0 30 800 300"
         fill="none"
         preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export function AmbientField({ className }: AmbientFieldProps) {
           stroke="hsl(var(--foreground))"
           strokeWidth="1"
           strokeLinecap="round"
-          opacity="0.2"
+          opacity="0.12"
         >
           <line x1="60" y1="70" x2="180" y2="120" />
           <line x1="180" y1="120" x2="320" y2="60" />
@@ -95,22 +95,22 @@ export function AmbientField({ className }: AmbientFieldProps) {
         </g>
 
         {/* Nodes — 16 dots in organic constellation */}
-        <circle cx="60" cy="70" r="3" className="signal-dot-svg signal-dot-svg-1" />
-        <circle cx="180" cy="120" r="3.5" className="signal-dot-svg signal-dot-svg-2" />
-        <circle cx="320" cy="60" r="3.5" className="signal-dot-svg signal-dot-svg-3" />
-        <circle cx="460" cy="110" r="3" className="signal-dot-svg signal-dot-svg-4" />
-        <circle cx="600" cy="70" r="3.5" className="signal-dot-svg signal-dot-svg-5" />
-        <circle cx="740" cy="130" r="3" className="signal-dot-svg signal-dot-svg-6" />
-        <circle cx="80" cy="230" r="2.5" className="signal-dot-svg signal-dot-svg-7" />
-        <circle cx="240" cy="210" r="4" className="signal-dot-svg signal-dot-svg-1" />
-        <circle cx="380" cy="230" r="3.5" className="signal-dot-svg signal-dot-svg-2" />
-        <circle cx="520" cy="200" r="3" className="signal-dot-svg signal-dot-svg-3" />
-        <circle cx="660" cy="230" r="3" className="signal-dot-svg signal-dot-svg-4" />
-        <circle cx="140" cy="40" r="2" className="signal-dot-svg signal-dot-svg-5" />
-        <circle cx="420" cy="40" r="2" className="signal-dot-svg signal-dot-svg-6" />
-        <circle cx="700" cy="40" r="2" className="signal-dot-svg signal-dot-svg-7" />
-        <circle cx="160" cy="270" r="2" className="signal-dot-svg signal-dot-svg-2" />
-        <circle cx="580" cy="260" r="2.5" className="signal-dot-svg signal-dot-svg-4" />
+        <circle cx="60" cy="70" r="3" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-1" />
+        <circle cx="180" cy="120" r="3.5" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-2" />
+        <circle cx="320" cy="60" r="3.5" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-3" />
+        <circle cx="460" cy="110" r="3" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-4" />
+        <circle cx="600" cy="70" r="3.5" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-5" />
+        <circle cx="740" cy="130" r="3" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-6" />
+        <circle cx="80" cy="230" r="2.5" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-7" />
+        <circle cx="240" cy="210" r="4" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-1" />
+        <circle cx="380" cy="230" r="3.5" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-2" />
+        <circle cx="520" cy="200" r="3" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-3" />
+        <circle cx="660" cy="230" r="3" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-4" />
+        <circle cx="140" cy="40" r="2" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-5" />
+        <circle cx="420" cy="40" r="2" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-6" />
+        <circle cx="700" cy="40" r="2" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-7" />
+        <circle cx="160" cy="270" r="2" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-2" />
+        <circle cx="580" cy="260" r="2.5" className="signal-dot-svg signal-dot-svg-ambient signal-dot-svg-4" />
       </svg>
     </div>
   );

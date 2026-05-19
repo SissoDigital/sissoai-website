@@ -4,18 +4,19 @@ const TOOLS = [
   "Make",
   "Airtable",
   "ManyChat",
+  "Green API",
   "WhatsApp",
-  "ChatGPT",
+  "OpenAI",
   "Claude",
   "Google AI",
-  "Green API",
+  "Anthropic",
   "Vercel",
-  "Next.js",
-  "Tailwind",
-  "shadcn/ui",
-  "OpenAI",
-  "n8n",
-  "Zapier",
+  "Cursor",
+  "GitHub",
+  "Google Workspace",
+  "Perplexity",
+  "WordPress",
+  "Fillout",
 ];
 
 function Chip({ name, className }: { name: string; className?: string }) {
@@ -55,8 +56,8 @@ export function ToolStack() {
       className="bg-background py-10 md:py-14"
     >
       <div className="mx-auto max-w-[1200px] px-6">
-        <p className="text-center text-xs uppercase tracking-widest text-accent">
-          Built With
+        <p className="text-center text-sm uppercase tracking-widest text-accent">
+          We Build With
         </p>
       </div>
 

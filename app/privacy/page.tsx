@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { SiteFooter } from "@/components/sections/site-footer";
+import { CONTACT } from "@/lib/social";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Sisso AI",
@@ -85,10 +86,10 @@ export default function PrivacyPage() {
                 active, plus 24 months for record-keeping. You may request
                 earlier deletion at any time by emailing{" "}
                 <a
-                  href="mailto:sissoaiagency@gmail.com"
+                  href={`mailto:${CONTACT.emailPrimary}`}
                   className="text-accent underline-offset-4 hover:underline"
                 >
-                  sissoaiagency@gmail.com
+                  {CONTACT.emailPrimary}
                 </a>
                 .
               </p>
@@ -121,10 +122,10 @@ export default function PrivacyPage() {
               <p>
                 To exercise these rights, email{" "}
                 <a
-                  href="mailto:sissoaiagency@gmail.com"
+                  href={`mailto:${CONTACT.emailPrimary}`}
                   className="text-accent underline-offset-4 hover:underline"
                 >
-                  sissoaiagency@gmail.com
+                  {CONTACT.emailPrimary}
                 </a>
                 .
               </p>
@@ -171,10 +172,10 @@ export default function PrivacyPage() {
               <p>
                 Questions about this Privacy Policy can be sent to{" "}
                 <a
-                  href="mailto:sissoaiagency@gmail.com"
+                  href={`mailto:${CONTACT.emailPrimary}`}
                   className="text-accent underline-offset-4 hover:underline"
                 >
-                  sissoaiagency@gmail.com
+                  {CONTACT.emailPrimary}
                 </a>{" "}
                 or via WhatsApp using the link in our site footer.
               </p>

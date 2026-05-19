@@ -55,8 +55,7 @@ export function FounderPortrait({ className }: FounderPortraitProps) {
 
           {/* Bottom-left: ops captions */}
           <div className="absolute bottom-4 left-4 space-y-0.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground md:text-xs">
-            <p>Operator</p>
-            <p>Costa Rica · 25 Years</p>
+            <p>Operator · 25 Years</p>
             <p>Physical × Digital</p>
           </div>
 
