@@ -6,7 +6,7 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const CONTACT = {
-  emailPrimary: "roie@sissodigital.com",
+  emailPrimary: "roie@sissoai.com",
   emailSecondary: "info@sissoai.com",
   phone: "+506 6055 9994",
   phoneRaw: "+50660559994",
