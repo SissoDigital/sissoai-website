@@ -5,14 +5,16 @@ import { Problem } from "@/components/sections/problem";
 import { Services } from "@/components/sections/services";
 import { SiteFooter } from "@/components/sections/site-footer";
 import { StatStrip } from "@/components/sections/stat-strip";
+import { ToolStack } from "@/components/sections/tool-stack";
 import { UseCases } from "@/components/sections/use-cases";
 import { ScrollReveal } from "@/components/visual/scroll-reveal";
 
 export default function Home() {
   return (
     <>
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <Hero />
+        <ToolStack />
         <ScrollReveal>
           <Problem />
         </ScrollReveal>

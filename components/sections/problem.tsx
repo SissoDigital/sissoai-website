@@ -15,7 +15,9 @@ export function Problem() {
               bleeding margin on manual inventory, or when a real estate lead
               goes cold after five minutes.
             </p>
-            <PullQuote>I do.</PullQuote>
+            <PullQuote className="my-8 md:my-10">
+              <span className="font-bold">I do.</span>
+            </PullQuote>
             <p>
               You don&apos;t need more technology. You need fewer bottlenecks.
               You need systems that connect your fragmented tools so data moves

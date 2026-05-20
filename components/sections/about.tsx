@@ -2,7 +2,7 @@ import { FounderPortrait } from "@/components/founder-portrait";
 
 export function About() {
   return (
-    <section className="atmosphere-warm bg-background">
+    <section id="about" className="atmosphere-warm scroll-mt-12 bg-background">
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-20">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
           <div className="flex justify-center md:justify-start">
@@ -14,7 +14,7 @@ export function About() {
             </h2>
             <div className="mt-8 space-y-6 text-base text-foreground md:text-lg">
               <p>
-                My name is Sisso. Over the last 25 years, I have built, scaled,
+                My name is Roie Sisso. Over the last 25 years, I have built, scaled,
                 and operated physical businesses across restaurants,
                 international real estate, and property management.
               </p>

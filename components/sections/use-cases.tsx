@@ -71,7 +71,7 @@ function Row({ label, value }: { label: string; value: string }) {
 
 export function UseCases() {
   return (
-    <section data-reveal className="bg-muted">
+    <section id="use-cases" data-reveal className="scroll-mt-12 bg-muted">
       <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-20">
         <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
           Systems Built for the Trenches
@@ -94,14 +94,20 @@ export function UseCases() {
                     {industry}
                   </p>
                   <Icon
-                    className="size-5 shrink-0 text-muted-foreground transition-colors duration-300 group-hover:text-accent"
+                    className="icon-breathe size-5 shrink-0 text-muted-foreground transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:rotate-3 group-hover:scale-110 group-hover:text-accent"
+                    style={{ animationDelay: `${idx * 0.8}s` }}
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />
                 </div>
                 <div className="mt-8 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-12 md:gap-12">
-                  <div className="md:col-span-4">
+                  <div className="transition-transform duration-500 group-hover:scale-[1.02] md:col-span-4 md:origin-left">
                     <DisplayNumeral value={metric.value} unit={metric.unit} />
+                    {/* Accent indicator line — slides in on hover */}
+                    <span
+                      aria-hidden="true"
+                      className="mt-4 block h-px w-0 bg-accent transition-all duration-700 group-hover:w-12"
+                    />
                   </div>
                   <div className="space-y-5 md:col-span-8">
                     <Row label="The Problem" value={problem} />

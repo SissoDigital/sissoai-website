@@ -127,6 +127,85 @@
     .signal-dot-svg-5 { animation-delay: 1.6s; }
     .signal-dot-svg-6 { animation-delay: 2.0s; }
     .signal-dot-svg-7 { animation-delay: 2.4s; }
+
+    /* Traveling data pulses on AmbientField connection lines. A short dash
+       (3 units) cycles along a 100-unit pathLength via stroke-dashoffset —
+       reads as a small packet flowing from node to node. */
+    @keyframes data-pulse-flow {
+      from { stroke-dashoffset: 100; }
+      to { stroke-dashoffset: 0; }
+    }
+    .data-pulse-line {
+      animation: data-pulse-flow 3.6s linear infinite;
+    }
+    .data-pulse-1 { animation-delay: 0s; }
+    .data-pulse-2 { animation-delay: 0.9s; }
+    .data-pulse-3 { animation-delay: 1.8s; }
+    .data-pulse-4 { animation-delay: 2.7s; }
+
+    /* Hero dot-grid pan — barely-perceptible 60s loop. The radial wash (the
+       second layer in .hero-atmosphere background-image) stays anchored;
+       only the dot-grid layer shifts via background-position. */
+    @keyframes hero-drift {
+      from { background-position: 0 0, 100% 0%; }
+      to   { background-position: 40px 40px, 100% 0%; }
+    }
+    .hero-atmosphere {
+      animation: hero-drift 60s linear infinite;
+    }
+
+    /* Marquee — seamless horizontal scroll for ToolStack. Chip list is
+       rendered twice in the DOM; this animation slides the inner row by
+       -50% so the second copy aligns exactly where the first started. */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* CTA-Green pulse for the SystemStatus pill. Same shape as signal-pulse
+       but uses --primary so it reads as a "system OK" green, not terracotta. */
+    @keyframes status-pulse {
+      0%, 100% {
+        opacity: 0.55;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+    .status-dot {
+      animation: status-pulse 2.4s ease-in-out infinite;
+    }
+
+    /* Use Cases icon breathe — subtle alive cue on the lucide icons. Each
+       icon takes an inline animation-delay so the three cards stagger. */
+    @keyframes icon-breathe {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+    .icon-breathe {
+      animation: icon-breathe 4s ease-in-out infinite;
+    }
+
+    /* BadgeStamp bottom-line shimmer. A soft terracotta hotspot travels
+       across a 200% background to read as "connected to the system rhythm." */
+    @keyframes shimmer-line {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer-line {
+      background: linear-gradient(
+        90deg,
+        hsl(var(--border)) 0%,
+        hsl(var(--border)) 40%,
+        hsl(var(--accent) / 0.6) 50%,
+        hsl(var(--border)) 60%,
+        hsl(var(--border)) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer-line 5s ease-in-out infinite;
+    }
   }
 }
 
@@ -178,11 +257,29 @@
     opacity: 0.85;
   }
 
+  /* Status dot — CTA-Green variant for the SystemStatus pill. */
+  .status-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: hsl(var(--primary));
+    opacity: 0.85;
+  }
+
   /* SVG dot inside <AmbientField>. Color + base opacity defined here so
      SVG circles inherit consistent styling; pulse animation is gated above. */
   .signal-dot-svg {
     fill: hsl(var(--accent));
     transform-origin: center;
     opacity: 0.7;
+  }
+
+  /* AmbientField-scoped opacity override. Dialed down vs. the connection
+     diagram so the hero constellation reads as ambient atmosphere rather
+     than foreground decoration. The signal-pulse-svg keyframe still peaks
+     at full opacity, so the pulse animation remains visible. */
+  .signal-dot-svg-ambient {
+    opacity: 0.5;
   }
 }

@@ -1,13 +1,19 @@
 import { buttonVariants } from "@/components/ui/button";
 import { IndustryPills } from "@/components/ui/industry-pills";
 import { AmbientField } from "@/components/visual/ambient-field";
+import { SystemStatus } from "@/components/visual/system-status";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section data-reveal className="hero-atmosphere bg-background">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center px-6 py-20 text-center md:py-32 lg:py-40">
-        <AmbientField className="mb-10 h-20 w-56 md:mb-14 md:h-24 md:w-72" />
+    <section data-reveal className="relative hero-atmosphere bg-background">
+      {/* AmbientField — full-bleed background layer behind the hero content */}
+      <AmbientField className="absolute inset-0 -z-0 h-full w-full opacity-50" />
+
+      {/* SystemStatus pill — top-right corner of the hero */}
+      <SystemStatus className="absolute right-6 top-6 z-10 md:right-8 md:top-8" />
+
+      <div className="relative z-10 mx-auto flex max-w-[1200px] flex-col items-center px-6 py-20 text-center md:py-32 lg:py-40">
         <div className="mb-10 inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-muted-foreground">
           <span className="signal-dot" aria-hidden="true" />
           Operator-led
@@ -39,7 +45,7 @@ export function Hero() {
           </a>
         </div>
         <IndustryPills
-          className="mt-10"
+          className="mt-16 md:mt-20"
           pills={[
             "Hospitality",
             "Property Management",

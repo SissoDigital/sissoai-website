@@ -57,9 +57,12 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
-      style={delay && visible ? { transitionDelay: `${delay}ms` } : undefined}
+      style={{
+        ...(delay && visible ? { transitionDelay: `${delay}ms` } : null),
+        filter: visible ? "blur(0px)" : "blur(4px)",
+      }}
       className={cn(
-        "transition-all duration-700 ease-out motion-reduce:transition-none",
+        "transition-all duration-[900ms] ease-out motion-reduce:transition-none",
         visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
         className,
       )}
