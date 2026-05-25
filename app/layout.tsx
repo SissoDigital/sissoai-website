@@ -15,9 +15,10 @@ const SITE_DESCRIPTION =
   "Stop buying software. Start building leverage. AI automations, CRM architectures, and agents built by an operator with 25 years of physical business experience.";
 
 export const metadata: Metadata = {
-  ...(env.NEXT_PUBLIC_SITE_URL
-    ? { metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL) }
-    : {}),
+  metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL ?? "https://sissoai.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,

@@ -7,6 +7,9 @@ import { CONTACT } from "@/lib/social";
 export const metadata: Metadata = {
   title: "Terms of Service | Sisso AI",
   description: "Terms for engaging with Sisso AI services.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {

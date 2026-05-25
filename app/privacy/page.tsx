@@ -7,6 +7,9 @@ import { CONTACT } from "@/lib/social";
 export const metadata: Metadata = {
   title: "Privacy Policy | Sisso AI",
   description: "How Sisso AI collects and handles your information.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {
