@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT Work: la guía práctica en español</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F1;
+    --card:#FFFFFF;
+    --ink:#15211C;
+    --ink-soft:#4A5550;
+    --accent:#0E7A5F;
+    --accent-deep:#0A5C48;
+    --accent-soft:#E4F0EA;
+    --amber:#B27310;
+    --amber-soft:#FBF3E2;
+    --line:#DCD9CE;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    font-size:16.5px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+
+  /* ---------- HERO ---------- */
+  header{
+    background:var(--ink);
+    color:#F2F4F0;
+    padding:64px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(600px 300px at 85% -10%, rgba(14,122,95,.45), transparent 70%),
+      radial-gradient(400px 260px at -5% 110%, rgba(14,122,95,.25), transparent 70%);
+    pointer-events:none;
+  }
+  header .wrap{position:relative;z-index:1}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;
+    text-transform:uppercase;color:#9CD4C2;
+    border:1px solid rgba(156,212,194,.4);border-radius:999px;
+    padding:6px 14px;margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:#39C79A}
+  h1{
+    font-family:'Archivo',sans-serif;font-weight:900;
+    font-size:clamp(2.1rem,6vw,3.3rem);
+    line-height:1.06;letter-spacing:-.02em;margin-bottom:20px;
+  }
+  h1 .hl{color:#4FD6AC}
+  .lede{font-size:1.13rem;color:#C3CCC7;max-width:600px;line-height:1.6}
+  .hero-meta{
+    margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 22px;
+    font-family:var(--mono);font-size:.76rem;color:#8FA39A;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:52px 0 8px}
+  .kicker{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent-deep);
+    display:flex;align-items:center;gap:12px;margin-bottom:14px;
+  }
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line)}
+  h2{
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:clamp(1.45rem,4vw,1.9rem);
+    line-height:1.15;letter-spacing:-.015em;margin-bottom:16px;
+  }
+  h3{
+    font-family:'Archivo',sans-serif;font-weight:700;
+    font-size:1.08rem;margin:26px 0 8px;
+  }
+  p{margin-bottom:14px;color:var(--ink)}
+  .soft{color:var(--ink-soft)}
+  strong{font-weight:700}
+  a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:3px}
+
+  /* ---------- CHAT vs WORK ---------- */
+  .vs{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 10px;
+  }
+  .vs .col{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px 20px 16px;
+  }
+  .vs .col.work{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .vs .tag{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;
+    text-transform:uppercase;margin-bottom:10px;display:block;
+  }
+  .vs .chat .tag{color:var(--ink-soft)}
+  .vs .work .tag{color:var(--accent-deep)}
+  .vs ul{list-style:none}
+  .vs li{padding:5px 0 5px 20px;position:relative;font-size:.94rem}
+  .vs li::before{content:"·";position:absolute;left:4px;font-weight:900}
+  @media(max-width:560px){.vs{grid-template-columns:1fr}}
+
+  /* ---------- TASK CARDS (signature) ---------- */
+  .task{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    margin:26px 0;overflow:hidden;
+  }
+  .task-head{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 20px;border-bottom:1px solid var(--line);
+    background:linear-gradient(to right,var(--accent-soft),transparent 65%);
+  }
+  .task-chip{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
+    background:var(--accent);color:#fff;border-radius:6px;
+    padding:4px 9px;text-transform:uppercase;white-space:nowrap;
+  }
+  .task-title{font-family:'Archivo',sans-serif;font-weight:700;font-size:1.02rem;line-height:1.25}
+  .task-body{padding:18px 20px 8px}
+  .task-body p{font-size:.97rem}
+  .handoff{
+    font-family:var(--mono);font-size:.85rem;line-height:1.6;
+    background:#182722;color:#D9EAE2;
+    border-radius:10px;padding:16px 18px;margin:12px 0 16px;
+    position:relative;
+  }
+  .handoff::before{
+    content:"LO QUE LE ENTREGAS →";
+    display:block;font-size:.62rem;letter-spacing:.16em;
+    color:#6FBFA4;margin-bottom:8px;
+  }
+  .returns{
+    display:flex;gap:10px;align-items:flex-start;
+    padding:12px 0 14px;border-top:1px dashed var(--line);
+    font-size:.92rem;color:var(--ink-soft);
+  }
+  .returns b{color:var(--accent-deep);font-family:var(--mono);font-size:.68rem;
+    letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;padding-top:2px}
+
+  /* ---------- FORMULA ---------- */
+  .formula{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:6px 20px;margin:20px 0;
+  }
+  .formula .row{
+    display:grid;grid-template-columns:120px 1fr;gap:14px;
+    padding:13px 0;border-bottom:1px solid var(--line);
+    font-size:.95rem;align-items:baseline;
+  }
+  .formula .row:last-child{border-bottom:none}
+  .formula .key{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--accent-deep);font-weight:500;
+  }
+  @media(max-width:520px){.formula .row{grid-template-columns:1fr;gap:2px}}
+
+  /* ---------- TABLE ---------- */
+  .tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:.9rem;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;display:block;overflow-x:auto}
+  .tbl table{width:100%;border-collapse:collapse;min-width:520px}
+  .tbl th{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+    text-align:left;color:var(--ink-soft);padding:12px 14px;border-bottom:1px solid var(--line);
+    background:var(--accent-soft);
+  }
+  .tbl td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+  .tbl tr:last-child td{border-bottom:none}
+
+  /* ---------- LISTS ---------- */
+  .checks{list-style:none;margin:12px 0 18px}
+  .checks li{padding:7px 0 7px 30px;position:relative}
+  .checks li::before{
+    content:"✓";position:absolute;left:2px;top:7px;
+    color:var(--accent);font-weight:800;
+  }
+  .warns{list-style:none;margin:12px 0 18px}
+  .warns li{padding:9px 0 9px 30px;position:relative}
+  .warns li::before{
+    content:"!";position:absolute;left:6px;top:9px;
+    color:var(--amber);font-weight:900;font-family:var(--mono);
+  }
+
+  .tip{
+    background:var(--amber-soft);border-left:3px solid var(--amber);
+    border-radius:0 10px 10px 0;padding:14px 18px;margin:18px 0;
+    font-size:.94rem;
+  }
+  .tip b{color:var(--amber)}
+
+  /* ---------- IDEAS ---------- */
+  .ideas{display:grid;gap:10px;margin:16px 0 20px}
+  .idea{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:12px 16px;font-size:.93rem;font-family:var(--mono);
+    color:var(--ink);line-height:1.55;
+  }
+  .idea::before{content:"» ";color:var(--accent)}
+
+  /* ---------- FAQ ---------- */
+  details{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    margin:10px 0;padding:0 18px;
+  }
+  summary{
+    cursor:pointer;padding:15px 0;font-weight:600;font-size:.98rem;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:1.2rem;flex-shrink:0}
+  details[open] summary::after{content:"–"}
+  details p{font-size:.94rem;color:var(--ink-soft);padding-bottom:16px}
+
+  /* ---------- CLOSE / FOOTER ---------- */
+  .close{
+    background:var(--ink);color:#E8EEEA;border-radius:18px;
+    padding:36px 30px;margin:48px 0 30px;text-align:center;
+  }
+  .close h2{color:#fff;margin-bottom:12px}
+  .close p{color:#B9C6C0;max-width:520px;margin:0 auto 0}
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 0 46px;font-size:.85rem;color:var(--ink-soft);
+  }
+  footer p{margin-bottom:8px;font-size:.85rem}
+  footer .src{font-family:var(--mono);font-size:.76rem;line-height:1.7}
+  @media(max-width:520px){
+    body{font-size:15.5px}
+    header{padding:48px 0 42px}
+    section{padding:40px 0 6px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Guía práctica · Julio 2026</span>
+    <h1>ChatGPT Work:<br>el modo que <span class="hl">ejecuta tareas completas</span> por ti</h1>
+    <p class="lede">Ya no le haces una pregunta. Le entregas una tarea, como a un empleado: un objetivo, las fuentes y los límites. Él planifica, trabaja en varios pasos sobre tus propias herramientas y te devuelve un resultado listo para revisar.</p>
+    <div class="hero-meta">
+      <span>Lanzado: 9 de julio 2026</span>
+      <span>Modelo: GPT-5.6</span>
+      <span>Lectura: ~10 min</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <div class="kicker">01 · Qué es</div>
+  <h2>De preguntar a delegar</h2>
+  <p>ChatGPT Work es un entorno de ejecución dentro de ChatGPT. La diferencia con el chat normal no es "quién sabe navegar": el chat también navega, analiza y genera archivos. La diferencia es <strong>quién dirige el proceso completo</strong>.</p>
+  <div class="vs">
+    <div class="col chat">
+      <span class="tag">Chat</span>
+      <ul>
+        <li>Preguntas y respuestas</li>
+        <li>Redactar un texto</li>
+        <li>Lluvia de ideas rápida</li>
+        <li>Más rápido y consume menos cuota</li>
+      </ul>
+    </div>
+    <div class="col work">
+      <span class="tag">Work</span>
+      <ul>
+        <li>Tareas largas, de varios pasos</li>
+        <li>Toca varias fuentes y herramientas</li>
+        <li>Escribe en tu Drive, Gmail y más</li>
+        <li>Termina en algo que puedes auditar</li>
+      </ul>
+    </div>
+  </div>
+  <p class="soft">Cuando le entregas una tarea, el proceso es visible: un plan con pasos que se van marcando, la lista de fuentes que está tocando, un área de resultados y notas intermedias cuando encuentra algo interesante. Puedes seguirlo, pausarlo o corregir el rumbo a mitad de camino. Y las acciones sensibles (como enviar un correo) se detienen y esperan tu aprobación.</p>
+</section>
+
+<section>
+  <div class="kicker">02 · Puesta en marcha</div>
+  <h2>Listo en 60 segundos</h2>
+  <ul class="checks">
+    <li><strong>Activa el modo Work.</strong> Es un interruptor Chat/Work en la parte superior, en la web o en la app de escritorio (que además incluye Codex para código).</li>
+    <li><strong>Conecta tus herramientas una sola vez.</strong> Desde la página Plugins conectas Google Drive, Gmail y Calendar. En la tarea puedes llamar a una herramienta específica con @, o dejar que Work elija sola.</li>
+    <li><strong>Conoce la barra lateral.</strong> <em>Scheduled</em> guarda tus tareas programadas; <em>Plugins</em>, tus conexiones. Las tareas pesadas consumen de una cuota compartida con Codex, separada de la del chat.</li>
+  </ul>
+
+  <h3>Disponibilidad por plataforma y plan</h3>
+  <div class="tbl"><table>
+    <tr><th>Dónde</th><th>Quién lo tiene</th><th>Nota</th></tr>
+    <tr><td><strong>App de escritorio</strong> (Win/Mac)</td><td>Todos los planes, incluso el gratuito</td><td>Tres modos: Chat / Work / Codex. Acceso a archivos locales con tu permiso.</td></tr>
+    <tr><td><strong>Web y móvil</strong></td><td>Solo planes de pago</td><td>Primero Pro/Enterprise/Edu, después Plus/Business.</td></tr>
+    <tr><td><strong>Conexión de apps + navegador en la nube</strong></td><td>De pago, según región</td><td>El envío real de correos está bloqueado en la UE, Reino Unido y Suiza, y no admite adjuntos.</td></tr>
+    <tr><td><strong>Modelo (GPT-5.6)</strong></td><td>Gratis/Go: Terra · Pago: Sol / Terra / Luna</td><td>Eliges el nivel según la tarea.</td></tr>
+  </table></div>
+  <p class="soft" style="font-size:.85rem">Información verificada al 15 de julio de 2026. La disponibilidad cambia rápido.</p>
+</section>
+
+<section>
+  <div class="kicker">03 · La fórmula</div>
+  <h2>Cómo se redacta una buena tarea</h2>
+  <p>Cuanto más completa sea la entrega, menos rondas de corrección y menos cuota gastada. Una tarea bien delegada tiene cinco piezas:</p>
+  <div class="formula">
+    <div class="row"><span class="key">Objetivo</span><span>Qué quieres al final. "Construye una hoja de control", no "ayúdame con las facturas".</span></div>
+    <div class="row"><span class="key">Fuentes</span><span>De dónde sale la información: "de los PDF que adjunté", "de la hoja X en mi Drive".</span></div>
+    <div class="row"><span class="key">Límites</span><span>Qué NO debe hacer: "no envíes nada, solo borradores".</span></div>
+    <div class="row"><span class="key">Formato</span><span>Cómo debe verse el resultado: "una fila por factura, una columna de revisión".</span></div>
+    <div class="row"><span class="key">Éxito</span><span>Qué cuenta como bien hecho: "resumen por proveedor, sin contar duplicados dos veces".</span></div>
+  </div>
+  <p class="soft">Exactamente igual que delegar a una persona: si la instrucción es vaga, el resultado también.</p>
+</section>
+
+<section>
+  <div class="kicker">04 · Qué puede hacer</div>
+  <h2>Seis tipos de tarea que ya funcionan</h2>
+  <p class="soft">Cada uno de estos casos fue ejecutado de verdad en la guía original (enlazada al final, con capturas de pantalla de cada corrida). Aquí va la idea de cada uno, lista para adaptar a tu negocio.</p>
+
+  <div class="task">
+    <div class="task-head"><span class="task-chip">Tarea 1</span><span class="task-title">De una hoja de cálculo a un dashboard publicado</span></div>
+    <div class="task-body">
+      <div class="handoff">Desde mi hoja de inscripciones en Drive, construye y publica un panel de control: ocupación por taller, cupos disponibles, y resalta cuáles conviene promocionar. Dame el enlace.</div>
+      <p>Work lee la hoja, calcula la ocupación, construye una app web y la publica en una dirección privada. Ojo: el dashboard es una foto del momento; para mantenerlo al día se le agrega una tarea programada que lo refresque.</p>
+      <div class="returns"><b>Recibes</b><span>Un sitio vivo, privado por defecto, listo para compartir cuando tú cambies el permiso.</span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-chip">Tarea 2</span><span class="task-title">Borradores de correo personalizados en tu Gmail</span></div>
+    <div class="task-body">
+      <div class="handoff">Revisa los últimos registros de la hoja y prepara un borrador de respuesta personal para cada cliente, según lo que pidió. No envíes nada: solo borradores en mi Gmail.</div>
+      <p>Los borradores aparecen directamente en tu bandeja, cada uno adaptado al cliente. Tú solo revisas, corriges si hace falta y envías. Y cuando sí le pides enviar, Work prepara todo y se detiene: nada sale sin que tú aprietes Send.</p>
+      <div class="returns"><b>Recibes</b><span>Borradores reales en tu bandeja + pantalla de aprobación antes de cualquier envío.</span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-chip">Tarea 3</span><span class="task-title">Tareas programadas: el negocio corre sin ti</span></div>
+    <div class="task-body">
+      <div class="handoff">Crea una tarea que corra cada mañana a las 8:00: revisa la hoja de registros, resume lo nuevo de ayer y qué hay agendado para hoy. Si no hay nada nuevo, escribe "sin novedades".</div>
+      <p>La tarea vive en la página Scheduled: tiene su propia instrucción, frecuencia y próxima ejecución, y se puede pausar o editar cuando quieras. Una tarea contra la nube corre sola; una que depende de archivos locales necesita la computadora encendida. Las acciones que requieren aprobación no se completan en una corrida sin supervisión.</p>
+      <div class="returns"><b>Recibes</b><span>Un brief automático cada mañana, sin pedirlo de nuevo.</span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-chip">Tarea 4</span><span class="task-title">De una pila de facturas PDF a una hoja de control</span></div>
+    <div class="task-body">
+      <div class="handoff">Adjunto las facturas del mes. Extrae de cada una: proveedor, fecha, número, monto e impuesto. Arma una hoja en mi Drive con una fila por factura, resumen mensual por proveedor, y una columna "revisar" que marque duplicados y campos faltantes.</div>
+      <p>En la prueba original se plantaron dos trampas a propósito (una factura duplicada y otra con un campo faltante) sin avisarle. Work atrapó las dos: marcó el duplicado en rojo, el campo faltante en amarillo, y calculó el total sin contar la duplicada dos veces.</p>
+      <div class="returns"><b>Recibes</b><span>Una hoja de control con formato condicional. Siempre se verifica contra los originales antes de pagar.</span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-chip">Tarea 5</span><span class="task-title">Análisis mensual directo a Google Slides</span></div>
+    <div class="task-body">
+      <div class="handoff">Analiza los datos de la hoja y arma una presentación de 4 diapositivas en mi Drive: portada, números clave, tendencias y una recomendación práctica. Con buen diseño.</div>
+      <p>Lo interesante no es la presentación en sí: es que la limpieza de datos ocurre en el camino. Work eliminó una fila de prueba y unificó variantes del mismo registro antes de escribir una sola diapositiva.</p>
+      <div class="returns"><b>Recibes</b><span>Un archivo de Slides en tu Drive. Antes de presentar, verifica que los números coincidan con la fuente.</span></div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><span class="task-chip">Tarea 6</span><span class="task-title">Investigación web con tres entregables en una sola corrida</span></div>
+    <div class="task-body">
+      <div class="handoff">Busca en internet 3-4 proveedores de mi insumo principal y compáralos: precio, variedad, pedido mínimo. Entregables: (1) tabla comparativa en una hoja de mi Drive con recomendación justificada, (2) borrador de solicitud de cotización en mi Gmail — sin enviar, (3) tarea semanal que revise si los precios cambiaron y actualice la hoja.</div>
+      <p>Aquí se ve la ventaja de una sola secuencia frente a una conversación: una instrucción produce los tres entregables juntos. Detalle de honestidad: Work normalizó los precios a la misma unidad y marcó explícitamente dónde no había precio público.</p>
+      <div class="returns"><b>Recibes</b><span>Hoja comparativa + borrador de cotización + monitoreo semanal automático. Los precios finales siempre se confirman con el proveedor.</span></div>
+    </div>
+  </div>
+
+  <h3>La misma idea, para cualquier negocio</h3>
+  <div class="ideas">
+    <div class="idea">Recorre la carpeta de recibos en mi Drive y arma una hoja de gastos por categoría y mes.</div>
+    <div class="idea">Escanea la hoja, encuentra los clientes que no han pagado y prepárales borradores de recordatorio en mi Gmail.</div>
+    <div class="idea">Cada lunes a las 9:00, revisa a mis tres competidores y actualiza una hoja de seguimiento con lo que cambió.</div>
+  </div>
+
+  <h3>Y también para tu vida diaria</h3>
+  <div class="ideas">
+    <div class="idea">Planifica un fin de semana familiar como documento en Docs, con itinerario y tabla de presupuesto.</div>
+    <div class="idea">Arma una hoja de presupuesto mensual desde mi lista de gastos (o desde el CSV del banco).</div>
+    <div class="idea">Toma el PDF del curso y crea un documento resumen con diez preguntas de repaso.</div>
+    <div class="idea">Cada domingo a las 7:00, envíame el brief semanal: agenda, clima y tareas pendientes.</div>
+  </div>
+
+  <div class="tip"><b>Si trabajas siempre en lo mismo:</b> un <strong>Proyecto</strong> concentra archivos, conversaciones e instrucciones alrededor de un negocio, para que Work recuerde el contexto en cada tarea. Una <strong>Skill</strong> es un flujo repetible con instrucciones y recursos guardados; se crean en la app de escritorio y en la web se accede desde Plugins.</div>
+</section>
+
+<section>
+  <div class="kicker">05 · Control</div>
+  <h2>Seguridad, permisos y qué revisar</h2>
+  <ul class="checks">
+    <li><strong>Aprobación antes de actuar.</strong> Las acciones sensibles se detienen en una pantalla de aprobación. El nivel de aprobaciones se ajusta en la configuración.</li>
+    <li><strong>Solo ve lo que tú conectas.</strong> Work usa únicamente las conexiones, archivos y apps que aprobaste, respeta tus permisos existentes y puedes desconectar cualquier cosa en cualquier momento.</li>
+    <li><strong>Los sitios nacen privados.</strong> Todo dashboard o sitio empieza como "solo visible para ti". Nadie lo ve hasta que tú cambias el acceso; el enlace solo no basta.</li>
+    <li><strong>Revisa antes de usar.</strong> Nombres, números, fechas, enlaces y permisos de compartir. Con precios de internet: pídele que marque fuente y fecha, y verifica contra el original antes de decidir.</li>
+  </ul>
+
+  <h3>Los cuatro errores más comunes</h3>
+  <ul class="warns">
+    <li><strong>Usar Work para preguntas cortas.</strong> Para redactar o pensar rápido, Chat es más veloz y barato. Work es para tareas de varios pasos.</li>
+    <li><strong>Entregar una tarea sin límites.</strong> Si quieres solo un borrador, dilo. Y define el formato del resultado; si no, recibirás otra cosa y quemarás cuota corrigiendo.</li>
+    <li><strong>Esperar que un dashboard se actualice solo.</strong> Es una foto del momento. Se refresca con una tarea programada.</li>
+    <li><strong>Confundir Work con "company knowledge".</strong> Work está disponible para todos; company knowledge es otra función, para planes empresariales, y por ahora solo en la web.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="kicker">06 · Preguntas rápidas</div>
+  <h2>Lo que todos preguntan</h2>
+  <details>
+    <summary>¿Cuánto cuesta?</summary>
+    <p>En la app de escritorio está en todos los planes, incluso el gratuito. En la web y el móvil, solo en planes de pago. Las tareas consumen de una cuota compartida con Codex, separada de la del chat normal.</p>
+  </details>
+  <details>
+    <summary>¿De verdad escribe en mis archivos y sistemas?</summary>
+    <p>Sí, a través de las conexiones que autorizaste: crea y actualiza archivos en Drive (Sheets, Docs, Slides), escribe borradores en Gmail, construye y publica sitios, y define tareas programadas. Las acciones sensibles se detienen para tu aprobación.</p>
+  </details>
+  <details>
+    <summary>¿Funciona en otros idiomas?</summary>
+    <p>Sí. Las demostraciones de la guía original corrieron completamente en hebreo, incluidas hojas de cálculo, presentación y correos, así que el soporte multilingüe es real. Algunas capacidades regionales varían (por ejemplo, el envío de correos está limitado en la UE).</p>
+  </details>
+  <details>
+    <summary>¿Qué diferencia hay con el navegador de ChatGPT?</summary>
+    <p>La navegación de Work en la web corre en un navegador en la nube pensado para sitios públicos: no inicia sesión en cuentas y un CAPTCHA puede detenerlo. La app de escritorio tiene un navegador integrado con perfil propio que sí puede iniciar sesión, además de Computer Use, una capacidad aparte que opera aplicaciones locales.</p>
+  </details>
+</section>
+
+<div class="close">
+  <h2>No es un salto tecnológico.<br>Es un cambio de hábito.</h2>
+  <p>En lugar de preguntar y recibir una respuesta, entregas una tarea y recibes trabajo que puedes revisar. Empieza con un caso cercano a tu negocio y dale una semana.</p>
+</div>
+
+<footer>
+  <p class="src"><strong>Fuentes oficiales:</strong> <a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noopener">anuncio de OpenAI</a> · <a href="https://openai.com/chatgpt-work/" target="_blank" rel="noopener">página del producto</a>.</p>
+  <p class="src" style="margin-top:14px"><strong>Compartido por Roie Sisso</strong> · Sisso AI Studio · <a href="https://sissoai.com" target="_blank" rel="noopener">sissoai.com</a><br>Operador con 25+ años en negocios reales. La IA es solo mi herramienta más nueva.</p>
+</footer>
+
+</div>
+</body>
+</html>
